@@ -13,14 +13,11 @@ If you believe this is a virus please check the source code [here](https://githu
 
 ## 🖼️ Preview
 
-Here's what the project looks like:
+Heres what the application does!
 
-**Main Interface**
+**The entire thing**
 
-![Main Interface](https://via.placeholder.com/600x300)
-
-*Above: The main interface of the application.*
-
+![Main Interface](https://youtu.be/HtgccobR9V4)
 ---
 
 **Another Screenshot**
