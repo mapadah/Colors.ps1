@@ -21,14 +21,6 @@ Heres what the application does!
 
 ---
 
-**Another Screenshot**
-
-![Screenshot 2](https://via.placeholder.com/600x300)
-
-*A closer look at another feature.*
-
----
-
 ## 🛠️ Installation
 
 ```bash
