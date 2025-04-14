@@ -1,14 +1,12 @@
-# 🚀 Project Title
+# Colors
 
-A short description of your project goes here.
+Colors on your screen and some LSD for me!
 
 ---
 
-## ✨ Features
+## Windows Defender
 
-- Feature 1
-- Feature 2
-- Feature 3
+For some reason windows defender hates this and keeps deleteing it from my computer and might do it to you too, so i would suggest turning it off
 
 ---
 
