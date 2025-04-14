@@ -22,9 +22,4 @@ Heres what the application does!
 ---
 
 ## 🛠️ Installation
-
-```bash
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
-npm install
-npm start
+figure it out dude LoL!
