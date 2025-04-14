@@ -8,6 +8,7 @@ Colors on your screen and some LSD for me!
 
 For some reason windows defender hates this and keeps deleteing it from my computer and might do it to you too, so i would suggest turning it off
 If you think this is a virus please check the source code [here](https://github.com/mapadah/Colors.ps1/blob/main/script.ps1).
+
 ---
 
 ## 🖼️ Preview
