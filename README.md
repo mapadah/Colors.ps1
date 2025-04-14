@@ -17,7 +17,8 @@ Heres what the application does!
 
 **The entire thing**
 
-![Main Interface](https://youtu.be/HtgccobR9V4)
+##[Entire thing](https://youtu.be/HtgccobR9V4)
+
 ---
 
 **Another Screenshot**
