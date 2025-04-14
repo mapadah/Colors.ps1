@@ -1,30 +1,23 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-# First confirmation box
 $response1 = [System.Windows.Forms.MessageBox]::Show("Are you sure you want to open this?", "Hmm...", "YesNo", "Question")
 
 if ($response1 -ne "Yes") { exit }
 
-# Second confirmation box
 $response2 = [System.Windows.Forms.MessageBox]::Show("Are you REALLY sure?", "One more time...", "YesNo", "Warning")
 
 if ($response2 -ne "Yes") { exit }
 
-# Now we start the chaos!
-
-# Create a transparent, borderless, topmost form
 $form = New-Object Windows.Forms.Form
 $form.FormBorderStyle = 'None'
 $form.TopMost = $true
 $form.Bounds = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
 $form.ShowInTaskbar = $false
 
-# Set transparency
 $form.BackColor = 'Magenta'
 $form.TransparencyKey = 'Magenta'
 
-# Make it click-through
 $ws = Add-Type -MemberDefinition @"
 [DllImport("user32.dll")]
 public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
@@ -34,19 +27,16 @@ public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
 $hwnd = $form.Handle
 $style = $ws::GetWindowLong($hwnd, -20)
-$ws::SetWindowLong($hwnd, -20, $style -bor 0x80000 -bor 0x20)  # WS_EX_LAYERED | WS_EX_TRANSPARENT
+$ws::SetWindowLong($hwnd, -20, $style -bor 0x80000 -bor 0x20) 
 
-# Key press event to close the form when "P" is pressed
 $form.Add_KeyDown({
     if ($_.KeyCode -eq 'P') {
         $form.Close()
     }
 })
 
-# Show the form
 $form.Show()
 
-# Play the system "error" sounds (Hand sound)
 function Play-ErrorSoundSequence {
     $errorSoundSequence = @(
         [System.Media.SystemSounds]::Hand,
@@ -55,20 +45,18 @@ function Play-ErrorSoundSequence {
     )
     
     foreach ($sound in $errorSoundSequence) {
-        $sound.Play()  # Play each error sound
-        Start-Sleep -Milliseconds 500  # Pause between sounds
+        $sound.Play() 
+        Start-Sleep -Milliseconds 500  
     }
 }
 
-# Play the error sounds in the background
 $job = Start-Job -ScriptBlock {
     while ($true) {
         Play-ErrorSoundSequence
-        Start-Sleep -Seconds 2  # Delay between loops
+        Start-Sleep -Seconds 2 
     }
 }
 
-# Draw shapes
 $graphics = $form.CreateGraphics()
 $width = $form.Width
 $height = $form.Height
@@ -94,6 +82,5 @@ while ($true) {
     Start-Sleep -Milliseconds 0
 }
 
-# To stop the background job and sounds when the script ends
 Stop-Job $job
 Remove-Job $job
